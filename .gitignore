@@ -1,0 +1,15 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+results/
+test_data/
+meta_gene_level_results.csv
+branched_patwhays.png
+*.png
+*.pdf
+*.xlsx
+*.xls
+*.csv~
+*~
