@@ -73,13 +73,14 @@ The output directory defaults to `results`. Run `iGSEA --help` for all options.
 
 ## Outputs
 
-The existing output names and plot presentation are retained:
+The tabular output names are stable. Plot filenames are taken directly from
+`--contrast`; for `--contrast "Mutated vs wild type"`, the outputs are:
 
 - `meta_gene_level_results.csv`
 - `meta_fgsea_results.csv` — pathways passing the adjusted p-value threshold
 - `meta_fgsea_results_all.csv` — complete enrichment results
-- `meta_NES_barplot.png`
-- `meta_NES_barplot.pdf`
+- `Mutated vs wild type.png`
+- `Mutated vs wild type.pdf`
 
 The gene-level table contains:
 

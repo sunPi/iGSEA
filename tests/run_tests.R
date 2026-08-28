@@ -43,4 +43,21 @@ duplicate_error <- tryCatch({
 }, error = function(error) grepl("duplicated gene_id", conditionMessage(error)))
 assert(duplicate_error, "Duplicate genes should fail with an explicit error")
 
+plot_output <- file.path(temporary, "plots")
+test_plot <- ggplot2::ggplot() + ggplot2::geom_blank()
+write_igsea_outputs(
+  meta_results = data.frame(gene_id = "geneA"),
+  fgsea_results = list(
+    significant = data.frame(pathway = "setA"),
+    all = data.frame(pathway = "setA")
+  ),
+  plot = test_plot,
+  output_dir = plot_output,
+  contrast = "branched:linear"
+)
+assert(file.exists(file.path(plot_output, "branched:linear.png")),
+       "PNG filename should be taken from the contrast")
+assert(file.exists(file.path(plot_output, "branched:linear.pdf")),
+       "PDF filename should be taken from the contrast")
+
 cat("All iGSEA tests passed.\n")

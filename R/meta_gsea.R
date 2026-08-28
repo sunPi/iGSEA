@@ -168,7 +168,7 @@ plot_meta_gsea <- function(result, contrast) {
 }
 
 write_igsea_outputs <- function(meta_results, fgsea_results, plot,
-                                output_dir) {
+                                output_dir, contrast) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   data.table::fwrite(
     meta_results, file.path(output_dir, "meta_gene_level_results.csv"))
@@ -179,11 +179,11 @@ write_igsea_outputs <- function(meta_results, fgsea_results, plot,
     fgsea_results$all,
     file.path(output_dir, "meta_fgsea_results_all.csv"))
 
-  grDevices::png(file.path(output_dir, "meta_NES_barplot.png"),
+  grDevices::png(file.path(output_dir, paste0(contrast, ".png")),
                  width = 3200, height = 1800, res = 300)
   print(plot)
   grDevices::dev.off()
-  grDevices::pdf(file.path(output_dir, "meta_NES_barplot.pdf"),
+  grDevices::pdf(file.path(output_dir, paste0(contrast, ".pdf")),
                  width = 12, height = 10)
   print(plot)
   grDevices::dev.off()
@@ -205,6 +205,6 @@ run_igsea <- function(input_dir, output_dir, gmt_path, contrast,
   plot_data <- enrichment$significant
   if (!nrow(plot_data)) plot_data <- enrichment$all[0, , drop = FALSE]
   plot <- plot_meta_gsea(plot_data, contrast)
-  write_igsea_outputs(meta, enrichment, plot, output_dir)
+  write_igsea_outputs(meta, enrichment, plot, output_dir, contrast)
   invisible(list(meta = meta, enrichment = enrichment, ranks = ranks))
 }

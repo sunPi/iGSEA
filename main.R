@@ -16,7 +16,7 @@ usage <- function(status = 0L) {
     "Required:\n",
     "  -d, --data DIR          Directory containing cohort DGE CSV files\n",
     "  -g, --gene-set FILE     GMT gene-set file\n",
-    "  -c, --contrast TEXT     Contrast label used as the plot title\n\n",
+    "  -c, --contrast TEXT     Plot title and output plot filename\n\n",
     "Options:\n",
     "  -o, --output DIR        Output directory [results]\n",
     "  -m, --model NAME        Ranking model: random or fixed [random]\n",
