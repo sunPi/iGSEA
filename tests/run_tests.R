@@ -53,11 +53,11 @@ write_igsea_outputs(
   ),
   plot = test_plot,
   output_dir = plot_output,
-  contrast = "branched:linear"
+  contrast = "branched"
 )
-assert(file.exists(file.path(plot_output, "branched:linear.png")),
+assert(file.exists(file.path(plot_output, "branched.png")),
        "PNG filename should be taken from the contrast")
-assert(file.exists(file.path(plot_output, "branched:linear.pdf")),
+assert(file.exists(file.path(plot_output, "branched.pdf")),
        "PDF filename should be taken from the contrast")
 
 cat("All iGSEA tests passed.\n")

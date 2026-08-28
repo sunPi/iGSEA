@@ -59,13 +59,13 @@ original script.
 iGSEA \
   --data dge_results \
   --gene-set hallmark.gmt \
-  --contrast "Mutated vs wild type"
+  --contrast "Mutated"
 ```
 
 Fixed-effect ranking:
 
 ```bash
-iGSEA -d dge_results -g hallmark.gmt -c "Mutated vs wild type" \
+iGSEA -d dge_results -g hallmark.gmt -c "Mutated" \
   --model fixed
 ```
 
@@ -74,13 +74,14 @@ The output directory defaults to `results`. Run `iGSEA --help` for all options.
 ## Outputs
 
 The tabular output names are stable. Plot filenames are taken directly from
-`--contrast`; for `--contrast "Mutated vs wild type"`, the outputs are:
+the test condition supplied to `--contrast`; the reference condition is not
+included. For `--contrast "Mutated"`, the outputs are:
 
 - `meta_gene_level_results.csv`
 - `meta_fgsea_results.csv` — pathways passing the adjusted p-value threshold
 - `meta_fgsea_results_all.csv` — complete enrichment results
-- `Mutated vs wild type.png`
-- `Mutated vs wild type.pdf`
+- `Mutated.png`
+- `Mutated.pdf`
 
 The gene-level table contains:
 
