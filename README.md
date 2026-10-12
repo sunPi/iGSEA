@@ -123,3 +123,9 @@ iGSEA no longer requires the private `pipecore` package.
   batch, platform, treatment history, or another study-level difference.
 - Cohorts are assumed to be independent.
 - Effect estimates must be scientifically comparable across experiments.
+
+## Source
+
+The software is based on the implementation of the meta-GSEA method proposed in the paper by Lu W et al, 2017.
+Citation: Lu W, Wang X, Zhan X, Gazdar A. Meta-analysis approaches to combine multiple gene set enrichment studies. Stat Med. 2018 Feb 20;37(4):659-672. doi: 10.1002/sim.7540. Epub 2017 Oct 19. PMID: 29052247; PMCID: PMC5771852.
+https://pmc.ncbi.nlm.nih.gov/articles/PMC5771852/
